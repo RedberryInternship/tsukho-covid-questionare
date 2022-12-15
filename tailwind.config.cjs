@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["BPGArial", "Helvetica", "Arial", "sans-serif"],
+        sans: ["BPGArial"],
       },
       colors: {
         neutral: {
