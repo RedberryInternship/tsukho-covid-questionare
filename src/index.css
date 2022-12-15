@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: BPGArial;
+    src: url(/fonts/bpg_arial.ttf) format("ttf");
+  }
+}
+
+.text-shadow:hover {
+  text-shadow: 2px 1px 0px #eaeaea, 4px 1px 0px #232323;
+}
