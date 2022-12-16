@@ -10,7 +10,7 @@ const LandingPage: React.FC = () => {
       />
       <div className='overflow-y-hidden text-center h-20 relative w-60'>
         <Link
-          to={'/'}
+          to={'/form/first-page'}
           className='text-center text-3xl opacity-0 font-bold leading-9 text-neutral-850 relative animate-text-down text-shadow animation-delay-700'
         >
           კითხვარის <br />
