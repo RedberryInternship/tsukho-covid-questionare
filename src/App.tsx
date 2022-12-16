@@ -1,7 +1,7 @@
-import React from "react";
+import { LandingPage } from '~/pages';
 
-const App = () => {
-  return <div className=" bg-black">App</div>;
+const App: React.FC = () => {
+  return <LandingPage />;
 };
 
 export default App;
