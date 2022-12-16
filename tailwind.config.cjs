@@ -74,6 +74,18 @@ module.exports = {
           backgroundColor: '#DD3939',
         },
       },
+      redCircleBackward: {
+        '0%': { left: '187px', top: '60px', width: '75px', height: '75px' },
+        '50%': { borderRadius: '50%' },
+        '100%': {
+          left: '81px',
+          top: '180px',
+          width: '229px',
+          height: '229px',
+          borderRadius: '50%',
+          backgroundColor: '#DD3939',
+        },
+      },
       starOne: {
         '0%': { left: '80px', top: '20px', opacity: 1 },
         '100%': { left: '20px', top: '-40px', opacity: 1 },
@@ -89,6 +101,7 @@ module.exports = {
       'yellow-move': 'yellowRectangle 0.7s forwards',
       'yellow-bakcward': 'yellowRectangleBackward 0.7s forwards',
       'red-move': 'redCircle 0.7s forwards',
+      'red-move-backward': 'redCircleBackward 0.7s forwards',
       'star-one': 'starOne 0.7s forwards',
       'star-two': 'starTwo 0.7s forwards',
     },
