@@ -38,7 +38,28 @@ module.exports = {
         '100%': { transform: 'scale(1)' },
       },
       yellowRectangle: {
-        '0%': { left: '0', top: '220px', width: '100px', height: '35px' },
+        '0%': {
+          left: '0',
+          top: '220px',
+          width: '35px',
+          borderRadius: '%50',
+          height: '35px',
+          backgroundColor: '#DD3939',
+        },
+        '25%': { borderRadius: '0', backgroundColor: '#D6D16E' },
+        '100%': { left: '127px', top: '140px', width: '622px', height: '75px' },
+      },
+      yellowRectangleBackward: {
+        '0%': {
+          left: '81px',
+          top: '180px',
+          width: '229px',
+          height: '229px',
+          borderRadius: '50%',
+          backgroundColor: '#DD3939',
+        },
+        '20%': { borderRadius: '0', backgroundColor: '#D6D16E' },
+
         '100%': { left: '127px', top: '140px', width: '622px', height: '75px' },
       },
       redCircle: {
@@ -66,6 +87,7 @@ module.exports = {
       'text-down': 'textToBottom 0.7s forwards',
       'shrink-image': 'shrinkingImage 0.7s forwards',
       'yellow-move': 'yellowRectangle 0.7s forwards',
+      'yellow-bakcward': 'yellowRectangleBackward 0.7s forwards',
       'red-move': 'redCircle 0.7s forwards',
       'star-one': 'starOne 0.7s forwards',
       'star-two': 'starTwo 0.7s forwards',
