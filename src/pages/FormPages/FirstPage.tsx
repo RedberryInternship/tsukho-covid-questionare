@@ -1,5 +1,6 @@
-import { Layout } from '~/components';
-import useQuery from '~/helpers/hooks/useQuery';
+import { ArrowRight, Layout } from '~/components';
+import { Link } from 'react-router-dom';
+import { useQuery } from '~/helpers';
 
 const FirstPage = () => {
   const startingPoint = useQuery();
@@ -21,6 +22,14 @@ const FirstPage = () => {
                 : 'animate-yellow-bakcward'
             } bg-lime-350 opacity-70`}
           />
+        </div>
+      </div>
+
+      <div className='w-full flex justify-center'>
+        <div className='w-[145px] flex justify-end'>
+          <Link to='../form/second-page?starting-point=forward'>
+            <ArrowRight />
+          </Link>
         </div>
       </div>
     </Layout>
