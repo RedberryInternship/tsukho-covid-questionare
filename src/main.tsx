@@ -2,7 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from '~/App';
 import '~/index.css';
-import { FirstPage, FourthPage, SecondPage, ThirdPage } from '~/pages';
+import {
+  FirstPage,
+  FourthPage,
+  SecondPage,
+  SuccessPage,
+  ThirdPage,
+} from '~/pages';
 
 import {
   createBrowserRouter,
@@ -19,6 +25,7 @@ const router = createBrowserRouter(
       <Route path='form/second-page' element={<SecondPage />} />
       <Route path='form/third-page' element={<ThirdPage />} />
       <Route path='form/fourth-page' element={<FourthPage />} />
+      <Route path='success' element={<SuccessPage />} />
     </Route>
   )
 );
