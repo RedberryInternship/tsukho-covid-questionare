@@ -6,11 +6,15 @@ module.exports = {
       fontFamily: {
         sans: ['BPGArial'],
       },
+      scale: {
+        63: '0.63',
+      },
       colors: {
         neutral: {
           850: '#232323',
         },
         white: {
+          100: '#FFFFFF',
           150: '#EAEAEA',
         },
         lime: {
@@ -49,12 +53,22 @@ module.exports = {
           backgroundColor: '#DD3939',
         },
       },
+      starOne: {
+        '0%': { left: '80px', top: '20px', opacity: 1 },
+        '100%': { left: '20px', top: '-40px', opacity: 1 },
+      },
+      starTwo: {
+        '0%': { right: '80px', top: '0px', opacity: 1 },
+        '100%': { right: '20px', top: '65px', opacity: 1 },
+      },
     },
     animation: {
       'text-down': 'textToBottom 0.7s forwards',
       'shrink-image': 'shrinkingImage 0.7s forwards',
       'yellow-move': 'yellowRectangle 0.7s forwards',
       'red-move': 'redCircle 0.7s forwards',
+      'star-one': 'starOne 0.7s forwards',
+      'star-two': 'starTwo 0.7s forwards',
     },
   },
   plugins: [require('tailwindcss-animation-delay')],
