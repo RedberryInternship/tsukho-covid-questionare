@@ -1,6 +1,9 @@
 import { Layout } from '~/components';
+import useQuery from '~/helpers/hooks/useQuery';
 
 const SecondPage = () => {
+  const startingPoint = useQuery();
+
   return (
     <Layout page={2}>
       <div className='flex justify-between'>
@@ -11,7 +14,13 @@ const SecondPage = () => {
             alt='scan'
             className='mt-[-73px]'
           />
-          <div className='absolute animate-red-move bg-lime-350 opacity-70 ' />
+          <div
+            className={`absolute ${
+              startingPoint === 'forward'
+                ? 'animate-red-move'
+                : 'animate-red-move-backward'
+            } bg-lime-350 opacity-70 `}
+          />
         </div>
       </div>
     </Layout>
