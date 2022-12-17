@@ -1,5 +1,6 @@
-import { Layout } from '~/components';
-import useQuery from '~/helpers/hooks/useQuery';
+import { Link } from 'react-router-dom';
+import { ArrowLeft, ArrowRight, Layout } from '~/components';
+import { useQuery } from '~/helpers';
 
 const SecondPage = () => {
   const startingPoint = useQuery();
@@ -21,6 +22,17 @@ const SecondPage = () => {
                 : 'animate-red-move-backward'
             } bg-lime-350 opacity-70 `}
           />
+        </div>
+      </div>
+
+      <div className='w-full flex justify-center'>
+        <div className='w-[145px] flex justify-between '>
+          <Link to={'../form/first-page?starting-point=backward'}>
+            <ArrowLeft />
+          </Link>
+          <Link to={'../form/third-page?starting-point=forward'}>
+            <ArrowRight />
+          </Link>
         </div>
       </div>
     </Layout>
