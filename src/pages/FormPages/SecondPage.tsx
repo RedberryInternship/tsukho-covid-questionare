@@ -1,28 +1,17 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Layout } from '~/components';
-import { useQuery } from '~/helpers';
+import {
+  ArrowLeft,
+  ArrowRight,
+  Layout,
+  SecondFormAnimationComponents,
+} from '~/components';
 
 const SecondPage = () => {
-  const startingPoint = useQuery();
-
   return (
     <Layout page={2}>
       <div className='flex justify-between'>
         <div></div>
-        <div className='relative'>
-          <img
-            src='/assets/icons/second-image.png'
-            alt='scan'
-            className='mt-[-73px]'
-          />
-          <div
-            className={`absolute ${
-              startingPoint === 'forward'
-                ? 'animate-red-move'
-                : 'animate-red-move-backward'
-            } bg-lime-350 opacity-70 `}
-          />
-        </div>
+        <SecondFormAnimationComponents />
       </div>
 
       <div className='w-full flex justify-center'>
