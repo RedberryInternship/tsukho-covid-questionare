@@ -9,10 +9,19 @@ const ThirdFormAnimationComponents = () => {
       <img
         src='/assets/icons/large-star.png'
         alt='scan'
-        className={`absolute ${
+        className={`absolute opacity-0 ${
           startingPoint === 'forward'
-            ? 'opacity-0 animate-moving-star animation-delay-100'
-            : ''
+            ? 'animate-moving-star animation-delay-100'
+            : 'animate-moving-star-backward animation-delay-100'
+        }`}
+      />
+      <img
+        src='/assets/icons/heart.png'
+        alt='scan'
+        className={`absolute top-[5.5rem] left-[6rem] opacity-70 ${
+          startingPoint === 'forward'
+            ? 'hidden'
+            : 'animate-moving-star-backward-heart'
         }`}
       />
       <div
