@@ -1,4 +1,4 @@
-import { layoutProps } from '~/types/layout';
+import { layoutProps } from '~/types';
 
 const Layout = ({ children, page }: layoutProps) => {
   return (

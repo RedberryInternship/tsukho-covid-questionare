@@ -1,11 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { ArrowRight, ArrowRightDisabled } from '~/components/icons';
-
-type firstFormInputs = {
-  first_name: string;
-  last_name: string;
-  email: string;
-};
+import { firstFormInputs } from '~/types';
 
 const FirstFormInputs = () => {
   const {
