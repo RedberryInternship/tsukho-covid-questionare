@@ -1,9 +1,11 @@
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router';
 import { ArrowRight, ArrowRightDisabled } from '~/components';
 import { useFirstFormContext } from '~/state';
 import { firstFormInputs } from '~/types';
 
 const FirstFormInputs = () => {
+  const navigate = useNavigate();
   const { firstFormInputs, changeFirstFormData } = useFirstFormContext();
   const {
     register,
@@ -17,6 +19,7 @@ const FirstFormInputs = () => {
 
   const onSubmit = (data: firstFormInputs) => {
     changeFirstFormData(data);
+    navigate('../form/second-page?starting-point=forward');
   };
 
   return (

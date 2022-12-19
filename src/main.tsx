@@ -16,7 +16,7 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import { StartingFormProvider } from '~/state';
+import { NameAndEmailFormProvider } from '~/state/context/NameAndEmailFormContext';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,8 +33,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <StartingFormProvider>
+    <NameAndEmailFormProvider>
       <RouterProvider router={router} />
-    </StartingFormProvider>
+    </NameAndEmailFormProvider>
   </React.StrictMode>
 );
