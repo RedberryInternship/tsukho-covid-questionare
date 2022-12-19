@@ -16,6 +16,7 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
+import { StartingFormProvider } from '~/state';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,6 +33,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <StartingFormProvider>
+      <RouterProvider router={router} />
+    </StartingFormProvider>
   </React.StrictMode>
 );
