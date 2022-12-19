@@ -10,14 +10,14 @@ import {
   firstFormtypes,
 } from '~/types/firstFormContext';
 
-const FirstFormContext = createContext({} as firstFormContextTypes);
+const StartingFormContext = createContext({} as firstFormContextTypes);
 
 const firstFormStorage =
   localStorage.getItem('firstForm') !== null
     ? JSON.parse(localStorage.getItem('firstForm')!)
     : { first_name: '', last_name: '', email: '' };
 
-export const FirstFormProvider = ({ children }: { children: ReactNode }) => {
+export const StartingFormProvider = ({ children }: { children: ReactNode }) => {
   const [firstFormInputs, setFirstFormInputs] =
     useState<firstFormtypes>(firstFormStorage);
 
@@ -35,10 +35,12 @@ export const FirstFormProvider = ({ children }: { children: ReactNode }) => {
   }, [firstFormInputs]);
 
   return (
-    <FirstFormContext.Provider value={{ firstFormInputs, changeFirstFormData }}>
+    <StartingFormContext.Provider
+      value={{ firstFormInputs, changeFirstFormData }}
+    >
       {children}
-    </FirstFormContext.Provider>
+    </StartingFormContext.Provider>
   );
 };
 
-export const useFirstFormContext = () => useContext(FirstFormContext);
+export const useFirstFormContext = () => useContext(StartingFormContext);
