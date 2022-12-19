@@ -16,6 +16,7 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
+import { FirstFormProvider } from '~/state';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,6 +33,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <FirstFormProvider>
+      <RouterProvider router={router} />
+    </FirstFormProvider>
   </React.StrictMode>
 );

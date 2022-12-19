@@ -1,16 +1,22 @@
 import { useForm } from 'react-hook-form';
-import { ArrowRight, ArrowRightDisabled } from '~/components/icons';
+import { ArrowRight, ArrowRightDisabled } from '~/components';
+import { useFirstFormContext } from '~/state';
 import { firstFormInputs } from '~/types';
 
 const FirstFormInputs = () => {
+  const { firstFormInputs, changeFirstFormData } = useFirstFormContext();
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors, isValid },
-  } = useForm<firstFormInputs>({ mode: 'onChange' });
+  } = useForm<firstFormInputs>({
+    mode: 'onChange',
+    defaultValues: firstFormInputs,
+  });
 
   const onSubmit = (data: firstFormInputs) => {
-    console.log(data);
+    changeFirstFormData(data);
   };
 
   return (
@@ -24,6 +30,7 @@ const FirstFormInputs = () => {
       <input
         type='text'
         {...register('first_name', {
+          onChange: () => changeFirstFormData(getValues()),
           required: {
             value: true,
             message: 'ველი სავალდებულოა',
@@ -54,6 +61,7 @@ const FirstFormInputs = () => {
       <input
         type='text'
         {...register('last_name', {
+          onChange: () => changeFirstFormData(getValues()),
           required: {
             value: true,
             message: 'ველი სავალდებულოა',
@@ -84,6 +92,7 @@ const FirstFormInputs = () => {
       <input
         type='text'
         {...register('email', {
+          onChange: () => changeFirstFormData(getValues()),
           required: {
             value: true,
             message: 'ველი სავალდებულოა',
