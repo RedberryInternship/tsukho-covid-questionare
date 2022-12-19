@@ -89,8 +89,8 @@ const FirstFormInputs = () => {
             message: 'ველი სავალდებულოა',
           },
           validate: {
-            endsWith: (v) =>
-              v.endsWith('@redberry.ge') ||
+            endsWith: (value) =>
+              value.endsWith('@redberry.ge') ||
               'გთხოვთ დარეგისტრირდეთ Redberry-ს მეილით (youremail@redberry.ge)',
           },
         })}
