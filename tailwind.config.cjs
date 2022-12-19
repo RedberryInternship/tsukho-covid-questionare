@@ -75,7 +75,7 @@ module.exports = {
         },
       },
       redCircleBackward: {
-        '0%': { left: '187px', top: '60px', width: '75px', height: '75px' },
+        '0%': { left: '227px', top: '60px', width: '75px', height: '75px' },
         '50%': { borderRadius: '50%' },
         '100%': {
           left: '81px',
@@ -85,6 +85,27 @@ module.exports = {
           borderRadius: '50%',
           backgroundColor: '#DD3939',
         },
+      },
+      redCircleStar: {
+        '0%': {
+          left: '0',
+          top: '180px',
+          width: '229px',
+          height: '229px',
+          borderRadius: '50%',
+          backgroundColor: '#DD3939',
+        },
+        '50%': { borderRadius: '50%', backgroundColor: '#D6D16E' },
+        '100%': {
+          left: '150px',
+          top: '60px',
+          width: '25px',
+          height: '25px',
+        },
+      },
+      movingStar: {
+        '0%': { left: '20px', top: '60px', opacity: 0.4 },
+        '100%': { left: '32px', top: '0', opacity: 0.7 },
       },
       starOne: {
         '0%': { left: '80px', top: '20px', opacity: 1 },
@@ -102,6 +123,8 @@ module.exports = {
       'yellow-bakcward': 'yellowRectangleBackward 0.7s forwards',
       'red-move': 'redCircle 0.7s forwards',
       'red-move-backward': 'redCircleBackward 0.7s forwards',
+      'red-move-star': 'redCircleStar 0.4s forwards',
+      'moving-star': 'movingStar 0.3s forwards',
       'star-one': 'starOne 0.7s forwards',
       'star-two': 'starTwo 0.7s forwards',
     },
