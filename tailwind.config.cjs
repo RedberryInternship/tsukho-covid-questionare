@@ -20,6 +20,9 @@ module.exports = {
         lime: {
           350: '#D6D16E',
         },
+        orange: {
+          650: '#F15524',
+        },
       },
     },
     margin: {
