@@ -4,13 +4,14 @@ import {
   ArrowRight,
   Layout,
   SecondFormAnimationComponents,
+  SecondFormInputs,
 } from '~/components';
 
 const SecondPage = () => {
   return (
     <Layout page={2}>
       <div className='flex justify-between'>
-        <div></div>
+        <SecondFormInputs />
         <SecondFormAnimationComponents />
       </div>
 
