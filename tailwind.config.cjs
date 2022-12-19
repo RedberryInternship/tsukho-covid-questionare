@@ -107,6 +107,14 @@ module.exports = {
         '0%': { left: '20px', top: '60px', opacity: 0.4 },
         '100%': { left: '32px', top: '0', opacity: 0.7 },
       },
+      movingStarBackward: {
+        '0%': { left: '32px', top: '0', opacity: 0 },
+        '100%': { left: '32px', top: '0', opacity: 0.7 },
+      },
+      movingStarBackwardHeart: {
+        '0%': { left: '96px', top: '88px', opacity: 0.7 },
+        '100%': { left: '32px', top: '0', opacity: 0, transform: 'scale(1.5)' },
+      },
       starOne: {
         '0%': { left: '80px', top: '20px', opacity: 1 },
         '100%': { left: '20px', top: '-40px', opacity: 1 },
@@ -125,6 +133,8 @@ module.exports = {
       'red-move-backward': 'redCircleBackward 0.7s forwards',
       'red-move-star': 'redCircleStar 0.4s forwards',
       'moving-star': 'movingStar 0.3s forwards',
+      'moving-star-backward': 'movingStarBackward 0.4s forwards',
+      'moving-star-backward-heart': 'movingStarBackwardHeart 0.4s forwards',
       'star-one': 'starOne 0.7s forwards',
       'star-two': 'starTwo 0.7s forwards',
     },
