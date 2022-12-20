@@ -3,23 +3,23 @@ import {
   ArrowLeft,
   ArrowRight,
   Layout,
-  ThirdFormAnimationComponents,
+  IsVacinatedFormAnimationComponents,
 } from '~/components';
 
-const ThirdPage = () => {
+const IsVacinatedPage = () => {
   return (
     <Layout page={3}>
       <div className='flex justify-between'>
         <div></div>
-        <ThirdFormAnimationComponents />
+        <IsVacinatedFormAnimationComponents />
       </div>
 
       <div className='w-full flex justify-center'>
         <div className='w-[145px] flex justify-between '>
-          <Link to={'../form/second-page?starting-point=backward'}>
+          <Link to={'../form/covid-state?starting-point=backward'}>
             <ArrowLeft />
           </Link>
-          <Link to={'../form/fourth-page?starting-point=forward'}>
+          <Link to={'../form/covid-politic?starting-point=forward'}>
             <ArrowRight />
           </Link>
         </div>
@@ -28,4 +28,4 @@ const ThirdPage = () => {
   );
 };
 
-export default ThirdPage;
+export default IsVacinatedPage;

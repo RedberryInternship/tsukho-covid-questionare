@@ -4,7 +4,7 @@ import { ArrowRight, ArrowRightDisabled } from '~/components';
 import { useFirstFormContext } from '~/state';
 import { firstFormInputs } from '~/types';
 
-const FirstFormInputs = () => {
+const NameAndEmailFormInputs = () => {
   const navigate = useNavigate();
   const { firstFormInputs, changeFirstFormData } = useFirstFormContext();
   const {
@@ -19,7 +19,7 @@ const FirstFormInputs = () => {
 
   const onSubmit = (data: firstFormInputs) => {
     changeFirstFormData(data);
-    navigate('../form/second-page?starting-point=forward');
+    navigate('../form/covid-state?starting-point=forward');
   };
 
   return (
@@ -123,4 +123,4 @@ const FirstFormInputs = () => {
   );
 };
 
-export default FirstFormInputs;
+export default NameAndEmailFormInputs;
