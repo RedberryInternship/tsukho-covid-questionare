@@ -13,6 +13,9 @@ module.exports = {
         neutral: {
           850: '#232323',
         },
+        cyan: {
+          650: '#1289AE',
+        },
         white: {
           100: '#FFFFFF',
           150: '#EAEAEA',
