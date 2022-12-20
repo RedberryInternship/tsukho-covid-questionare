@@ -112,7 +112,7 @@ const NameAndEmailFormInputs = () => {
         <ErrorMessage errors={errors} name='email' />
       </div>
 
-      <div className='w-[145px] flex justify-end absolute bottom-[104px] left-[50%] translate-x-[-50%]'>
+      <div className='w-[145px] flex justify-end absolute bottom-[25px] left-[50%] translate-x-[-50%]'>
         <button disabled={!isValid}>
           {isValid ? <ArrowRight /> : <ArrowRightDisabled />}
         </button>
