@@ -3,6 +3,7 @@ import { useForm, useWatch } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ArrowRightDisabled } from '~/components/icons';
+import { IsVacinatedFormTypes } from '~/types/isVacinatedFormInputs';
 
 const IsVacinatedFormInputs = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const IsVacinatedFormInputs = () => {
     control,
     handleSubmit,
     formState: { isValid },
-  } = useForm({
+  } = useForm<IsVacinatedFormTypes>({
     mode: 'onChange',
     shouldUnregister: true,
     defaultValues: { had_vaccine: '', vaccination_stage: '', i_am_waiting: '' },
@@ -21,7 +22,7 @@ const IsVacinatedFormInputs = () => {
     name: ['had_vaccine', 'vaccination_stage', 'i_am_waiting'],
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: IsVacinatedFormTypes) => {
     navigate('../form/covid-politic?starting-point=forward');
     console.log(data);
   };

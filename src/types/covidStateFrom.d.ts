@@ -1,4 +1,4 @@
-export type covidStateFormTypes = {
+export type CovidStateFormTypes = {
   had_covid: string;
   had_antibody_test: string;
   covid_sickness_date: string;

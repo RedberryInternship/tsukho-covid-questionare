@@ -1,6 +1,6 @@
-import { layoutProps } from '~/types';
+import { LayoutProps } from '~/types';
 
-const Layout = ({ children, page }: layoutProps) => {
+const Layout = ({ children, page }: LayoutProps) => {
   return (
     <div className='bg-white-150 h-screen pt-[97px] pl-50 pr-50 '>
       <div className='flex justify-between items-center pb-[23px] border-b-2 border-neutral-850'>

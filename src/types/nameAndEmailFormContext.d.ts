@@ -1,4 +1,4 @@
-export type nameAndEmailFormContextTypes = {
+export type NameAndEmailFormContextTypes = {
   firstFormInputs: firstFormtypes;
   changeFirstFormData: (data: firstFormtypes) => void;
 };
