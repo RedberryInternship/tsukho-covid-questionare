@@ -7,7 +7,8 @@ import { ErrorMessage } from '@hookform/error-message';
 
 const NameAndEmailFormInputs = () => {
   const navigate = useNavigate();
-  const { firstFormInputs, changeFirstFormData } = useFirstFormContext();
+  const { nameAndEmailFormInputs, changeNameAndEmailFormData } =
+    useFirstFormContext();
   const {
     register,
     handleSubmit,
@@ -15,11 +16,11 @@ const NameAndEmailFormInputs = () => {
     formState: { errors, isValid },
   } = useForm<NameAndEmailFormInputsTypes>({
     mode: 'onChange',
-    defaultValues: firstFormInputs,
+    defaultValues: nameAndEmailFormInputs,
   });
 
   const onSubmit = (data: NameAndEmailFormInputsTypes) => {
-    changeFirstFormData(data);
+    changeNameAndEmailFormData(data);
     navigate('../form/covid-state?starting-point=forward');
   };
 
@@ -34,7 +35,7 @@ const NameAndEmailFormInputs = () => {
       <input
         type='text'
         {...register('first_name', {
-          onChange: () => changeFirstFormData(getValues()),
+          onChange: () => changeNameAndEmailFormData(getValues()),
           required: {
             value: true,
             message: 'ველი სავალდებულოა',
@@ -64,7 +65,7 @@ const NameAndEmailFormInputs = () => {
       <input
         type='text'
         {...register('last_name', {
-          onChange: () => changeFirstFormData(getValues()),
+          onChange: () => changeNameAndEmailFormData(getValues()),
           required: {
             value: true,
             message: 'ველი სავალდებულოა',
@@ -94,7 +95,7 @@ const NameAndEmailFormInputs = () => {
       <input
         type='text'
         {...register('email', {
-          onChange: () => changeFirstFormData(getValues()),
+          onChange: () => changeNameAndEmailFormData(getValues()),
           required: {
             value: true,
             message: 'ველი სავალდებულოა',

@@ -1,29 +1,26 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import { ArrowLeft, ArrowRight, ArrowRightDisabled } from '~/components/icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { CovidStateFormTypes } from '~/types/covidStateFrom';
+import { useCovidStateFormContext } from '~/state/context/CovidStateFormContext';
 
 const CovidStateFormInputs = () => {
+  const { covidStateFormInputs, changeCovidStateFormData } =
+    useCovidStateFormContext();
+
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     control,
     formState: { errors, isValid },
+    getValues,
   } = useForm<CovidStateFormTypes>({
     mode: 'onChange',
     shouldUnregister: true,
-    defaultValues: {
-      had_covid: '',
-      had_antibody_test: '',
-      covid_sickness_date: '',
-      antibodies: {
-        test_date: '',
-        number: undefined,
-      },
-    },
+    defaultValues: covidStateFormInputs,
   });
 
   const userAnswers = useWatch({
@@ -31,8 +28,12 @@ const CovidStateFormInputs = () => {
     name: ['had_covid', 'had_antibody_test'],
   });
 
+  useEffect(() => {
+    changeCovidStateFormData(getValues());
+  }, [userAnswers]);
+
   const onSubmit = (data: CovidStateFormTypes) => {
-    console.log(data);
+    changeCovidStateFormData(data);
     navigate('../form/is-vacinated?starting-point=forward');
   };
 

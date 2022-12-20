@@ -6,17 +6,17 @@ import {
   useState,
 } from 'react';
 import {
-  nameAndEmailFormContextTypes,
-  nameAndEmailFormtypes,
-} from '~/types/nameAndEmailFormContext';
+  NameAndEmailFormContextTypes,
+  NameAndEmailFormInputsTypes,
+} from '~/types';
 
 const NameAndEmailFormContext = createContext(
-  {} as nameAndEmailFormContextTypes
+  {} as NameAndEmailFormContextTypes
 );
 
-const firstFormStorage =
-  localStorage.getItem('firstForm') !== null
-    ? JSON.parse(localStorage.getItem('firstForm')!)
+const nameAndEmailFormStorage =
+  localStorage.getItem('nameAndEmailFormStorage') !== null
+    ? JSON.parse(localStorage.getItem('nameAndEmailFormStorage')!)
     : { first_name: '', last_name: '', email: '' };
 
 export const NameAndEmailFormProvider = ({
@@ -24,25 +24,29 @@ export const NameAndEmailFormProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [firstFormInputs, setFirstFormInputs] =
-    useState<nameAndEmailFormtypes>(firstFormStorage);
+  const [nameAndEmailFormInputs, setNameAndEmailFormInputs] =
+    useState<NameAndEmailFormInputsTypes>(nameAndEmailFormStorage);
 
-  const changeFirstFormData = (data: nameAndEmailFormtypes) => {
-    setFirstFormInputs(data);
+  const changeNameAndEmailFormData = (data: NameAndEmailFormInputsTypes) => {
+    setNameAndEmailFormInputs(data);
   };
 
   useEffect(() => {
     const timer = setTimeout(
-      () => localStorage.setItem('firstForm', JSON.stringify(firstFormInputs)),
+      () =>
+        localStorage.setItem(
+          'nameAndEmailFormStorage',
+          JSON.stringify(nameAndEmailFormInputs)
+        ),
       400
     );
 
     return () => clearTimeout(timer);
-  }, [firstFormInputs]);
+  }, [nameAndEmailFormInputs]);
 
   return (
     <NameAndEmailFormContext.Provider
-      value={{ firstFormInputs, changeFirstFormData }}
+      value={{ nameAndEmailFormInputs, changeNameAndEmailFormData }}
     >
       {children}
     </NameAndEmailFormContext.Provider>
