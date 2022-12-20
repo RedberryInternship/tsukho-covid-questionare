@@ -14,6 +14,7 @@ const IsVacinatedFormInputs = () => {
   } = useForm({
     mode: 'onChange',
     shouldUnregister: true,
+    defaultValues: { had_vaccine: '', vaccination_stage: '', i_am_waiting: '' },
   });
   const userAnswers = useWatch({
     control,

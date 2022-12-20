@@ -1,2 +1,2 @@
-export * from './firstForm';
+export * from './nameAndEmailForm';
 export * from './layout';

@@ -6,11 +6,13 @@ import {
   useState,
 } from 'react';
 import {
-  firstFormContextTypes,
-  firstFormtypes,
-} from '~/types/firstFormContext';
+  nameAndEmailFormContextTypes,
+  nameAndEmailFormtypes,
+} from '~/types/nameAndEmailFormContext';
 
-const NameAndEmailFormContext = createContext({} as firstFormContextTypes);
+const NameAndEmailFormContext = createContext(
+  {} as nameAndEmailFormContextTypes
+);
 
 const firstFormStorage =
   localStorage.getItem('firstForm') !== null
@@ -23,9 +25,9 @@ export const NameAndEmailFormProvider = ({
   children: ReactNode;
 }) => {
   const [firstFormInputs, setFirstFormInputs] =
-    useState<firstFormtypes>(firstFormStorage);
+    useState<nameAndEmailFormtypes>(firstFormStorage);
 
-  const changeFirstFormData = (data: firstFormtypes) => {
+  const changeFirstFormData = (data: nameAndEmailFormtypes) => {
     setFirstFormInputs(data);
   };
 
