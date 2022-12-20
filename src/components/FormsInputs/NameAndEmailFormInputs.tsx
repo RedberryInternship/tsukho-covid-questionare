@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import { ArrowRight, ArrowRightDisabled } from '~/components';
 import { useFirstFormContext } from '~/state';
-import { firstFormInputs } from '~/types';
+import { NameAndEmailFormInputsTypes } from '~/types';
 import { ErrorMessage } from '@hookform/error-message';
 
 const NameAndEmailFormInputs = () => {
@@ -13,12 +13,12 @@ const NameAndEmailFormInputs = () => {
     handleSubmit,
     getValues,
     formState: { errors, isValid },
-  } = useForm<firstFormInputs>({
+  } = useForm<NameAndEmailFormInputsTypes>({
     mode: 'onChange',
     defaultValues: firstFormInputs,
   });
 
-  const onSubmit = (data: firstFormInputs) => {
+  const onSubmit = (data: NameAndEmailFormInputsTypes) => {
     changeFirstFormData(data);
     navigate('../form/covid-state?starting-point=forward');
   };

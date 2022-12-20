@@ -3,6 +3,7 @@ import { useForm, useWatch } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import { ArrowLeft, ArrowRight, ArrowRightDisabled } from '~/components/icons';
 import { Link, useNavigate } from 'react-router-dom';
+import { CovidStateFormTypes } from '~/types/covidStateFrom';
 
 const CovidStateFormInputs = () => {
   const navigate = useNavigate();
@@ -11,9 +12,18 @@ const CovidStateFormInputs = () => {
     handleSubmit,
     control,
     formState: { errors, isValid },
-  } = useForm({
+  } = useForm<CovidStateFormTypes>({
     mode: 'onChange',
     shouldUnregister: true,
+    defaultValues: {
+      had_covid: '',
+      had_antibody_test: '',
+      covid_sickness_date: '',
+      antibodies: {
+        test_date: '',
+        number: undefined,
+      },
+    },
   });
 
   const userAnswers = useWatch({
@@ -21,7 +31,7 @@ const CovidStateFormInputs = () => {
     name: ['had_covid', 'had_antibody_test'],
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: CovidStateFormTypes) => {
     console.log(data);
     navigate('../form/is-vacinated?starting-point=forward');
   };
