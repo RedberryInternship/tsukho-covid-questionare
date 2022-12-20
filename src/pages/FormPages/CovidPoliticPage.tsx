@@ -1,16 +1,20 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, FourthFormAnimationComponents, Layout } from '~/components';
+import {
+  ArrowLeft,
+  CovidPoliticFormAnimationComponents,
+  Layout,
+} from '~/components';
 
-const FourthPage = () => {
+const CovidPoliticPage = () => {
   return (
     <Layout page={4}>
       <div className='flex justify-between'>
         <div></div>
-        <FourthFormAnimationComponents />
+        <CovidPoliticFormAnimationComponents />
       </div>
       <div className='w-full flex justify-center'>
         <div className='w-[145px] flex justify-between '>
-          <Link to={'../form/third-page?starting-point=backward'}>
+          <Link to={'../form/is-vacinated?starting-point=backward'}>
             <ArrowLeft />
           </Link>
         </div>
@@ -19,4 +23,4 @@ const FourthPage = () => {
   );
 };
 
-export default FourthPage;
+export default CovidPoliticPage;

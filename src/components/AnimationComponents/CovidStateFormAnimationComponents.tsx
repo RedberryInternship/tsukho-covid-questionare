@@ -1,6 +1,6 @@
 import { useQuery } from '~/helpers';
 
-const SecondFormAnimationComponents = () => {
+const CovidStateFormAnimationComponents = () => {
   const startingPoint = useQuery();
 
   return (
@@ -21,4 +21,4 @@ const SecondFormAnimationComponents = () => {
   );
 };
 
-export default SecondFormAnimationComponents;
+export default CovidStateFormAnimationComponents;

@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 
-const SecondFormInputs = () => {
+const CovidStateFormInputs = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data: any) => {
@@ -64,4 +64,4 @@ const SecondFormInputs = () => {
   );
 };
 
-export default SecondFormInputs;
+export default CovidStateFormInputs;

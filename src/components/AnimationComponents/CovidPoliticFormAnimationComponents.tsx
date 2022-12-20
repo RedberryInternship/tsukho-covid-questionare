@@ -1,4 +1,4 @@
-const FourthFormAnimationComponents = () => {
+const CovidPoliticFormAnimationComponents = () => {
   return (
     <div className='relative'>
       <img src='/assets/icons/bike.png' alt='scan' className='mt-[21px]' />
@@ -12,4 +12,4 @@ const FourthFormAnimationComponents = () => {
   );
 };
 
-export default FourthFormAnimationComponents;
+export default CovidPoliticFormAnimationComponents;

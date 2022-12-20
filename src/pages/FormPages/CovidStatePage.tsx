@@ -3,24 +3,24 @@ import {
   ArrowLeft,
   ArrowRight,
   Layout,
-  SecondFormAnimationComponents,
-  SecondFormInputs,
+  CovidStateFormAnimationComponents,
+  CovidStateFormInputs,
 } from '~/components';
 
-const SecondPage = () => {
+const CovidStatePage = () => {
   return (
     <Layout page={2}>
       <div className='flex justify-between'>
-        <SecondFormInputs />
-        <SecondFormAnimationComponents />
+        <CovidStateFormInputs />
+        <CovidStateFormAnimationComponents />
       </div>
 
       <div className='w-full flex justify-center'>
         <div className='w-[145px] flex justify-between '>
-          <Link to={'../form/first-page?starting-point=backward'}>
+          <Link to={'../form/name-and-email?starting-point=backward'}>
             <ArrowLeft />
           </Link>
-          <Link to={'../form/third-page?starting-point=forward'}>
+          <Link to={'../form/is-vacinated?starting-point=forward'}>
             <ArrowRight />
           </Link>
         </div>
@@ -29,4 +29,4 @@ const SecondPage = () => {
   );
 };
 
-export default SecondPage;
+export default CovidStatePage;

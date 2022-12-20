@@ -1,4 +1,4 @@
-export { default as FirstPage } from './FirstPage';
-export { default as SecondPage } from './SecondPage';
-export { default as ThirdPage } from './ThirdPage';
-export { default as FourthPage } from './FourthPage';
+export { default as NameAndEmailPage } from './NameAndEmailPage';
+export { default as CovidStatePage } from './CovidStatePage';
+export { default as IsVacinatedPage } from './IsVacinatedPage';
+export { default as CovidPoliticPage } from './CovidPoliticPage';

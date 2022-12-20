@@ -1,6 +1,6 @@
 import { useQuery } from '~/helpers';
 
-const ThirdFormAnimationComponents = () => {
+const IsVacinatedFormAnimationComponents = () => {
   const startingPoint = useQuery();
 
   return (
@@ -34,4 +34,4 @@ const ThirdFormAnimationComponents = () => {
   );
 };
 
-export default ThirdFormAnimationComponents;
+export default IsVacinatedFormAnimationComponents;
