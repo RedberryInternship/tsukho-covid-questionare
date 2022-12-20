@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import { ArrowRight, ArrowRightDisabled } from '~/components';
 import { useFirstFormContext } from '~/state';
 import { firstFormInputs } from '~/types';
+import { ErrorMessage } from '@hookform/error-message';
 
 const NameAndEmailFormInputs = () => {
   const navigate = useNavigate();
@@ -50,14 +51,13 @@ const NameAndEmailFormInputs = () => {
         className='border-[1px] bg-white-150 outline-none px-[20px] py-2.5 w-[513px] border-neutral-850 font-normal text-lg leading-[22px] h-[50px]'
         placeholder='სახელი'
       />
-      {errors.first_name && (
-        <p className='font-normal text-base leading-[19px] text-orange-650 mt-[5px] ml-[15px]'>
-          {errors.first_name.message}
-        </p>
-      )}
+      <div className='font-normal text-base leading-[19px] h-[19px] text-orange-650 mt-[5px] ml-[15px]'>
+        <ErrorMessage errors={errors} name='first_name' />
+      </div>
+
       <label
         htmlFor='last_name'
-        className='font-bold leading-[27px] text-[22px] text-neutral-850 mb-[18px] mt-[47px]'
+        className='font-bold leading-[27px] text-[22px] text-neutral-850 mb-[18px] mt-[28px]'
       >
         გვარი*
       </label>
@@ -81,14 +81,13 @@ const NameAndEmailFormInputs = () => {
         placeholder='გვარი'
         className='border-[1px] bg-white-150 outline-none px-[20px] py-2.5 w-[513px] border-neutral-850 font-normal text-lg leading-[22px] h-[50px]'
       />
-      {errors.last_name && (
-        <p className='font-normal text-base leading-[19px] text-orange-650 mt-[5px] ml-[15px]'>
-          {errors.last_name.message}
-        </p>
-      )}
+      <div className='font-normal text-base leading-[19px] h-[19px] text-orange-650 mt-[5px] ml-[15px]'>
+        <ErrorMessage errors={errors} name='last_name' />
+      </div>
+
       <label
         htmlFor='email'
-        className='font-bold leading-[27px] text-[22px] text-neutral-850 mb-[18px] mt-[47px]'
+        className='font-bold leading-[27px] text-[22px] text-neutral-850 mb-[18px] mt-[28px]'
       >
         მეილი*
       </label>
@@ -109,11 +108,10 @@ const NameAndEmailFormInputs = () => {
         placeholder='მეილი'
         className='border-[1px] bg-white-150 outline-none px-[20px] py-2.5 w-[513px] border-neutral-850 font-normal text-lg leading-[22px] h-[50px]'
       />
-      {errors.email && (
-        <p className='font-normal text-base leading-[19px] text-orange-650 mt-[5px] ml-[15px]'>
-          {errors.email.message}
-        </p>
-      )}
+      <div className='font-normal text-base leading-[19px] h-[19px] text-orange-650 mt-[5px] ml-[15px]'>
+        <ErrorMessage errors={errors} name='email' />
+      </div>
+
       <div className='w-[145px] flex justify-end absolute bottom-[104px] left-[50%] translate-x-[-50%]'>
         <button disabled={!isValid}>
           {isValid ? <ArrowRight /> : <ArrowRightDisabled />}
