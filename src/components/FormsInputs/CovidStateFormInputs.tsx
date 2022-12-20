@@ -1,41 +1,12 @@
-import { Fragment, useEffect } from 'react';
-import { useForm, useWatch } from 'react-hook-form';
+import { Fragment } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
 import { ArrowLeft, ArrowRight, ArrowRightDisabled } from '~/components/icons';
-import { Link, useNavigate } from 'react-router-dom';
-import { CovidStateFormTypes } from '~/types/covidStateFrom';
-import { useCovidStateFormContext } from '~/state/context/CovidStateFormContext';
+import { Link } from 'react-router-dom';
+import { useCovidStateFormInputs } from '~/components/FormsInputs/FormInputsHooks';
 
 const CovidStateFormInputs = () => {
-  const { covidStateFormInputs, changeCovidStateFormData } =
-    useCovidStateFormContext();
-
-  const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors, isValid },
-    getValues,
-  } = useForm<CovidStateFormTypes>({
-    mode: 'onChange',
-    shouldUnregister: true,
-    defaultValues: covidStateFormInputs,
-  });
-
-  const userAnswers = useWatch({
-    control,
-    name: ['had_covid', 'had_antibody_test'],
-  });
-
-  useEffect(() => {
-    changeCovidStateFormData(getValues());
-  }, [userAnswers]);
-
-  const onSubmit = (data: CovidStateFormTypes) => {
-    changeCovidStateFormData(data);
-    navigate('../form/is-vacinated?starting-point=forward');
-  };
+  const { register, handleSubmit, errors, isValid, userAnswers, onSubmit } =
+    useCovidStateFormInputs();
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col'>

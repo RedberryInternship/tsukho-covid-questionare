@@ -1,28 +1,21 @@
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router';
-import { ArrowRight, ArrowRightDisabled } from '~/components';
-import { useFirstFormContext } from '~/state';
-import { NameAndEmailFormInputsTypes } from '~/types';
+import {
+  ArrowRight,
+  ArrowRightDisabled,
+  useNameAndEmailFormInputs,
+} from '~/components';
+
 import { ErrorMessage } from '@hookform/error-message';
 
 const NameAndEmailFormInputs = () => {
-  const navigate = useNavigate();
-  const { nameAndEmailFormInputs, changeNameAndEmailFormData } =
-    useFirstFormContext();
   const {
     register,
     handleSubmit,
     getValues,
-    formState: { errors, isValid },
-  } = useForm<NameAndEmailFormInputsTypes>({
-    mode: 'onChange',
-    defaultValues: nameAndEmailFormInputs,
-  });
-
-  const onSubmit = (data: NameAndEmailFormInputsTypes) => {
-    changeNameAndEmailFormData(data);
-    navigate('../form/covid-state?starting-point=forward');
-  };
+    errors,
+    isValid,
+    onSubmit,
+    changeNameAndEmailFormData,
+  } = useNameAndEmailFormInputs();
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col'>
