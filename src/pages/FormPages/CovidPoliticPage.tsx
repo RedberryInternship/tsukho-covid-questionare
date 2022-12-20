@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import {
   ArrowLeft,
   CovidPoliticFormAnimationComponents,
+  CovidPoliticFormInputs,
   Layout,
 } from '~/components';
 
@@ -9,7 +10,7 @@ const CovidPoliticPage = () => {
   return (
     <Layout page={4}>
       <div className='flex justify-between'>
-        <div></div>
+        <CovidPoliticFormInputs />
         <CovidPoliticFormAnimationComponents />
       </div>
       <div className='w-full flex justify-center'>
