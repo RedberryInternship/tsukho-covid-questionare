@@ -1,27 +1,21 @@
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router';
-import { ArrowRight, ArrowRightDisabled } from '~/components';
-import { useFirstFormContext } from '~/state';
-import { NameAndEmailFormInputsTypes } from '~/types';
+import {
+  ArrowRight,
+  ArrowRightDisabled,
+  useNameAndEmailFormInputs,
+} from '~/components';
+
 import { ErrorMessage } from '@hookform/error-message';
 
 const NameAndEmailFormInputs = () => {
-  const navigate = useNavigate();
-  const { firstFormInputs, changeFirstFormData } = useFirstFormContext();
   const {
     register,
     handleSubmit,
     getValues,
-    formState: { errors, isValid },
-  } = useForm<NameAndEmailFormInputsTypes>({
-    mode: 'onChange',
-    defaultValues: firstFormInputs,
-  });
-
-  const onSubmit = (data: NameAndEmailFormInputsTypes) => {
-    changeFirstFormData(data);
-    navigate('../form/covid-state?starting-point=forward');
-  };
+    errors,
+    isValid,
+    onSubmit,
+    changeNameAndEmailFormData,
+  } = useNameAndEmailFormInputs();
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col'>
@@ -34,7 +28,7 @@ const NameAndEmailFormInputs = () => {
       <input
         type='text'
         {...register('first_name', {
-          onChange: () => changeFirstFormData(getValues()),
+          onChange: () => changeNameAndEmailFormData(getValues()),
           required: {
             value: true,
             message: 'ველი სავალდებულოა',
@@ -64,7 +58,7 @@ const NameAndEmailFormInputs = () => {
       <input
         type='text'
         {...register('last_name', {
-          onChange: () => changeFirstFormData(getValues()),
+          onChange: () => changeNameAndEmailFormData(getValues()),
           required: {
             value: true,
             message: 'ველი სავალდებულოა',
@@ -94,7 +88,7 @@ const NameAndEmailFormInputs = () => {
       <input
         type='text'
         {...register('email', {
-          onChange: () => changeFirstFormData(getValues()),
+          onChange: () => changeNameAndEmailFormData(getValues()),
           required: {
             value: true,
             message: 'ველი სავალდებულოა',

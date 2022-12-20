@@ -1,4 +1,6 @@
+import { NameAndEmailFormInputsTypes } from '~/types/nameAndEmailForm';
+
 export type NameAndEmailFormContextTypes = {
-  firstFormInputs: firstFormtypes;
-  changeFirstFormData: (data: firstFormtypes) => void;
+  nameAndEmailFormInputs: NameAndEmailFormInputsTypes;
+  changeNameAndEmailFormData: (data: NameAndEmailFormInputsTypes) => void;
 };
