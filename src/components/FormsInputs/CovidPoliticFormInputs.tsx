@@ -2,8 +2,13 @@ import { CovidPoliticRadioButton } from '~/components';
 import useCovidPoliticFormInputs from '~/components/FormsInputs/FormInputsHooks/useCovidPoliticFormInputs';
 
 const CovidPoliticFormInputs = () => {
-  const { register, handleSubmit, onSubmit, isValid } =
-    useCovidPoliticFormInputs();
+  const {
+    register,
+    handleSubmit,
+    onSubmit,
+    isValid,
+    saveCovidPoliticsInformation,
+  } = useCovidPoliticFormInputs();
 
   return (
     <div className='w-[622px]'>
@@ -121,6 +126,7 @@ const CovidPoliticFormInputs = () => {
         </label>
         <textarea
           {...register('what_about_meetings_in_live')}
+          onBlur={saveCovidPoliticsInformation}
           id='what_about_meetings_in_live'
           cols={30}
           rows={10}
@@ -128,15 +134,16 @@ const CovidPoliticFormInputs = () => {
         ></textarea>
 
         <label
-          htmlFor='tell_us_your_opinion_about_us	'
+          htmlFor='tell_us_your_opinion_about_us'
           className='font-bold leading-[27px] text-[22px] text-neutral-850 mb-[20px] '
         >
           რას ფიქრობ არსებულ გარემოზე: <br /> რა მოგწონს, რას დაამატებდი, რას
           შეცვლიდი?
         </label>
         <textarea
-          {...register('tell_us_your_opinion_about_us	')}
-          id='tell_us_your_opinion_about_us	'
+          {...register('tell_us_your_opinion_about_us')}
+          id='tell_us_your_opinion_about_us'
+          onBlur={saveCovidPoliticsInformation}
           cols={30}
           rows={10}
           className='bg-white-150 w-[622px] h-[182px] border-[1px] border-neutral-850 mt-[20px] px-[15px] py-[10px] font-normal text-xl text-neutral-850 '
