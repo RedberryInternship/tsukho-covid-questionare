@@ -122,6 +122,22 @@ module.exports = {
         '0%': { left: '96px', top: '88px', opacity: 0.7 },
         '100%': { left: '32px', top: '0', opacity: 0, transform: 'scale(1.5)' },
       },
+      movingStarInHeart: {
+        '0%': { left: '-40px', top: '10px', opacity: 0.7 },
+        '100%': { left: '30px', top: '70px', opacity: 0 },
+      },
+      heartLargeOne: {
+        '0%': { transform: 'scale(0)', opacity: 0 },
+        '100%': { transform: 'scale(1)', opacity: 0.7 },
+      },
+      heartLargeTwo: {
+        '0%': { transform: 'scale(1)', opacity: 1 },
+        '100%': { transform: 'scale(10)', opacity: 0 },
+      },
+      heartBG: {
+        '0%': { transform: 'scale(1)', opacity: 0 },
+        '100%': { transform: 'scale(100)', opacity: 1 },
+      },
       starOne: {
         '0%': { left: '80px', top: '20px', opacity: 1 },
         '100%': { left: '20px', top: '-40px', opacity: 1 },
@@ -142,6 +158,10 @@ module.exports = {
       'moving-star': 'movingStar 0.3s forwards',
       'moving-star-backward': 'movingStarBackward 0.4s forwards',
       'moving-star-backward-heart': 'movingStarBackwardHeart 0.4s forwards',
+      'moving-star-in-heart': 'movingStarInHeart 0.3s forwards',
+      'heart-large-one': 'heartLargeOne 0.4s forwards',
+      'heart-large-two': 'heartLargeTwo 0.7s forwards',
+      'heart-background': 'heartBG 0.7s forwards',
       'star-one': 'starOne 0.7s forwards',
       'star-two': 'starTwo 0.7s forwards',
     },

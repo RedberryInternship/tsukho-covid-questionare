@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import {
   useCovidStateFormContext,
   useFirstFormContext,
@@ -18,6 +19,7 @@ const covidPoliticFormStorage =
       };
 
 const useCovidPoliticFormInputs = () => {
+  const navigate = useNavigate();
   const { covidStateFormInputs } = useCovidStateFormContext();
   const { nameAndEmailFormInputs } = useFirstFormContext();
   const { isVacinatedFormInputs } = useIsVacinatedFormContext();
@@ -59,6 +61,9 @@ const useCovidPoliticFormInputs = () => {
       ...isVacinatedFormInputs,
       number_of_days_from_office: +data.number_of_days_from_office,
     });
+
+    navigate('../form/covid-politic?starting-point=backward');
+    setTimeout(() => navigate('../success'), 700);
   };
 
   return {
