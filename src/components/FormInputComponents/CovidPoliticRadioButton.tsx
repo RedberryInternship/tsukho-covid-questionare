@@ -1,17 +1,12 @@
-import { Fragment } from 'react';
-import { UseFormRegister } from 'react-hook-form';
+import React, { Fragment } from 'react';
+import { CovidPoliticRadioButtonProps } from '~/types';
 
-const CovidPoliticRadioButton = ({
+const CovidPoliticRadioButton: React.FC<CovidPoliticRadioButtonProps> = ({
   register,
   madeFor,
   value,
   buttonText,
-}: {
-  register: UseFormRegister<any>;
-  madeFor: string;
-  value: string;
-  buttonText: string;
-}) => {
+}: CovidPoliticRadioButtonProps) => {
   return (
     <Fragment>
       <input
