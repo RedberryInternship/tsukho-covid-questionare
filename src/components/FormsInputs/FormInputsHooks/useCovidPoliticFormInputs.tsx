@@ -70,6 +70,7 @@ const useCovidPoliticFormInputs = () => {
     if (response.statusText === 'Created') {
       navigate('../form/covid-politic?starting-point=backward');
       setTimeout(() => navigate('../success'), 700);
+      localStorage.clear();
     } else {
       navigate('../form/name-and-email?starting-point=forward');
     }
