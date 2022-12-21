@@ -6,7 +6,7 @@ const CovidPoliticRadioButton: React.FC<CovidPoliticRadioButtonProps> = ({
   madeFor,
   value,
   buttonText,
-}: CovidPoliticRadioButtonProps) => {
+}) => {
   return (
     <Fragment>
       <input
