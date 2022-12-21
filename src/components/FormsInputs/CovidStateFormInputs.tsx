@@ -103,7 +103,7 @@ const CovidStateFormInputs = () => {
           </div>
         </Fragment>
       )}
-      {userAnswers[1] === 'false' && (
+      {userAnswers[0] === 'yes' && userAnswers[1] === 'false' && (
         <Fragment>
           <label
             htmlFor='covid_sickness_date'
@@ -129,7 +129,7 @@ const CovidStateFormInputs = () => {
         </Fragment>
       )}
 
-      {userAnswers[1] === 'true' && (
+      {userAnswers[0] === 'yes' && userAnswers[1] === 'true' && (
         <Fragment>
           <label
             htmlFor='antibodies'
