@@ -60,6 +60,8 @@ const useCovidPoliticFormInputs = () => {
       ...nameAndEmailFormInputs,
       ...isVacinatedFormInputs,
       number_of_days_from_office: +data.number_of_days_from_office,
+      had_antibody_test: covidStateFormInputs.had_antibody_test === 'true',
+      had_vaccine: isVacinatedFormInputs.had_vaccine === 'true',
     });
 
     navigate('../form/covid-politic?starting-point=backward');
