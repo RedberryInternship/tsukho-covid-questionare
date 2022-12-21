@@ -20,7 +20,7 @@ const IsVacinatedFormInputs = () => {
           type='radio'
           {...register('had_vaccine', { required: true })}
           id='yes'
-          value={'yes'}
+          value={'true'}
           className='mx-[19px] radio-button'
         />
         <label
@@ -34,7 +34,7 @@ const IsVacinatedFormInputs = () => {
         <input
           type='radio'
           {...register('had_vaccine', { required: true })}
-          value={'no'}
+          value={'false'}
           id='no'
           className='mx-[19px] radio-button'
         />
@@ -45,7 +45,7 @@ const IsVacinatedFormInputs = () => {
           არა
         </label>
       </div>
-      {userAnswers[0] === 'yes' && (
+      {userAnswers[0] === 'true' && (
         <Fragment>
           <label
             htmlFor='vaccination_stage'
@@ -101,7 +101,7 @@ const IsVacinatedFormInputs = () => {
         </Fragment>
       )}
 
-      {userAnswers[0] === 'no' && (
+      {userAnswers[0] === 'false' && (
         <Fragment>
           <label
             htmlFor='i_am_waiting'

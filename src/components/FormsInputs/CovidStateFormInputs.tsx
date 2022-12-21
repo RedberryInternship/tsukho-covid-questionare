@@ -72,9 +72,11 @@ const CovidStateFormInputs = () => {
           <div className='flex items-center mb-[20px]'>
             <input
               type='radio'
-              {...register('had_antibody_test', { required: true })}
+              {...register('had_antibody_test', {
+                required: true,
+              })}
               id='yes'
-              value={'yes'}
+              value={'true'}
               className='mx-[19px] radio-button'
             />
             <label
@@ -88,7 +90,7 @@ const CovidStateFormInputs = () => {
             <input
               type='radio'
               {...register('had_antibody_test', { required: true })}
-              value={'no'}
+              value={'false'}
               id='no'
               className='mx-[19px] radio-button'
             />
@@ -101,7 +103,7 @@ const CovidStateFormInputs = () => {
           </div>
         </Fragment>
       )}
-      {userAnswers[1] === 'no' && (
+      {userAnswers[1] === 'false' && (
         <Fragment>
           <label
             htmlFor='covid_sickness_date'
@@ -127,7 +129,7 @@ const CovidStateFormInputs = () => {
         </Fragment>
       )}
 
-      {userAnswers[1] === 'yes' && (
+      {userAnswers[1] === 'true' && (
         <Fragment>
           <label
             htmlFor='antibodies'
