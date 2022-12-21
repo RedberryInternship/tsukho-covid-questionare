@@ -16,8 +16,11 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import { NameAndEmailFormProvider } from '~/state/context/NameAndEmailFormContext';
-import { CovidStateFormProvider } from '~/state/context/CovidStateFormContext';
+import {
+  NameAndEmailFormProvider,
+  CovidStateFormProvider,
+  IsVacinatedFormProvider,
+} from '~/state';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,10 +37,12 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <CovidStateFormProvider>
-      <NameAndEmailFormProvider>
-        <RouterProvider router={router} />
-      </NameAndEmailFormProvider>
-    </CovidStateFormProvider>
+    <IsVacinatedFormProvider>
+      <CovidStateFormProvider>
+        <NameAndEmailFormProvider>
+          <RouterProvider router={router} />
+        </NameAndEmailFormProvider>
+      </CovidStateFormProvider>
+    </IsVacinatedFormProvider>
   </React.StrictMode>
 );
