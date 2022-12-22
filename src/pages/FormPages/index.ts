@@ -1,4 +1,4 @@
-export { default as NameAndEmailPage } from './NameAndEmailPage';
-export { default as CovidStatePage } from './CovidStatePage';
-export { default as IsVacinatedPage } from './IsVacinatedPage';
-export { default as CovidPoliticPage } from './CovidPoliticPage';
+export * from './NameAndEmailPage';
+export * from './CovidPoliticPage';
+export * from './CovidStatePage';
+export * from './IsVacinatedPage';
