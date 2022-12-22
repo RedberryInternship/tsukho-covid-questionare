@@ -187,7 +187,7 @@ const CovidStateFormInputs = () => {
         </Fragment>
       )}
 
-      <div className='w-[145px] flex justify-between absolute bottom-[25px] left-[50%] translate-x-[-50%] z-[15]'>
+      <div className='w-[145px] flex justify-between absolute bottom-[25px] left-1/2 translate-x--1/2 z-[15]'>
         <Link to={'../form/name-and-email?starting-point=backward'}>
           <ArrowLeft />
         </Link>
