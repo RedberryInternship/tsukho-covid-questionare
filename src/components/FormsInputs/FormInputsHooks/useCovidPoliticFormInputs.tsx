@@ -55,15 +55,31 @@ const useCovidPoliticFormInputs = () => {
     localStorage.setItem('covidPoliticForm', JSON.stringify(getValues()));
 
   const onSubmit = async (data: CovidPoliticsTypes) => {
-    const formData = {
-      ...data,
-      ...covidStateFormInputs,
-      ...nameAndEmailFormInputs,
-      ...isVacinatedFormInputs,
-      number_of_days_from_office: +data.number_of_days_from_office,
-      had_antibody_test: covidStateFormInputs.had_antibody_test === 'true',
-      had_vaccine: isVacinatedFormInputs.had_vaccine === 'true',
-    };
+    let formData;
+
+    if (covidStateFormInputs.covid_sickness_date === undefined) {
+      formData = {
+        ...data,
+        ...covidStateFormInputs,
+        ...nameAndEmailFormInputs,
+        ...isVacinatedFormInputs,
+        number_of_days_from_office: +data.number_of_days_from_office,
+        had_antibody_test: covidStateFormInputs.had_antibody_test === 'true',
+        had_vaccine: isVacinatedFormInputs.had_vaccine === 'true',
+      };
+    } else {
+      formData = {
+        ...data,
+        ...covidStateFormInputs,
+        ...nameAndEmailFormInputs,
+        ...isVacinatedFormInputs,
+        covid_sickness_date:
+          covidStateFormInputs.covid_sickness_date.replaceAll('-', '/'),
+        number_of_days_from_office: +data.number_of_days_from_office,
+        had_antibody_test: covidStateFormInputs.had_antibody_test === 'true',
+        had_vaccine: isVacinatedFormInputs.had_vaccine === 'true',
+      };
+    }
 
     const response = await instance.post('/', formData);
 
