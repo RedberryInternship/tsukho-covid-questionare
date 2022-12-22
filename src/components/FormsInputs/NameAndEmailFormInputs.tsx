@@ -94,9 +94,17 @@ const NameAndEmailFormInputs = () => {
             message: 'ველი სავალდებულოა',
           },
           validate: {
-            endsWith: (value) =>
-              value.endsWith('@redberry.ge') ||
-              'გთხოვთ დარეგისტრირდეთ Redberry-ს მეილით (youremail@redberry.ge)',
+            endsWith: (value) => {
+              if (
+                !/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+                  value
+                )
+              ) {
+                return 'თქვენ მიერ შეყვანილი მეილი არასწორია';
+              } else if (!value.endsWith('@redberry.ge')) {
+                return 'გთხოვთ დარეგისტრირდეთ Redberry-ს მეილით (youremail@redberry.ge)';
+              }
+            },
           },
         })}
         placeholder='მეილი'
