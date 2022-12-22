@@ -1,12 +1,17 @@
 import { useEffect } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useNavigate } from 'react-router';
+import { useFirstFormContext } from '~/state';
 import { useCovidStateFormContext } from '~/state/context/CovidStateFormContext';
 import { CovidStateFormTypes } from '~/types';
 
 const useCovidStateFormInputs = () => {
-  const { covidStateFormInputs, changeCovidStateFormData } =
-    useCovidStateFormContext();
+  const {
+    covidStateFormInputs,
+    changeCovidStateFormData,
+    setIsCovidStateFilled,
+  } = useCovidStateFormContext();
+  const { isNameAndEmailFilled } = useFirstFormContext();
 
   const navigate = useNavigate();
   const {
@@ -21,6 +26,11 @@ const useCovidStateFormInputs = () => {
     shouldUnregister: true,
     defaultValues: covidStateFormInputs,
   });
+
+  useEffect(() => {
+    if (!isNameAndEmailFilled)
+      navigate('../form/name-and-email?starting-point=forward');
+  }, []);
 
   const userAnswers = useWatch({
     control,
@@ -39,6 +49,7 @@ const useCovidStateFormInputs = () => {
 
   const onSubmit = (data: CovidStateFormTypes) => {
     changeCovidStateFormData(data);
+    setIsCovidStateFilled(true);
     navigate('../form/is-vacinated?starting-point=forward');
   };
 

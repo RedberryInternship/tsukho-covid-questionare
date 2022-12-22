@@ -5,8 +5,11 @@ import { NameAndEmailFormInputsTypes } from '~/types';
 
 const useNameAndEmailFormInputs = () => {
   const navigate = useNavigate();
-  const { nameAndEmailFormInputs, changeNameAndEmailFormData } =
-    useFirstFormContext();
+  const {
+    nameAndEmailFormInputs,
+    changeNameAndEmailFormData,
+    setIsNameAndEmailFilled,
+  } = useFirstFormContext();
   const {
     register,
     handleSubmit,
@@ -19,6 +22,7 @@ const useNameAndEmailFormInputs = () => {
 
   const onSubmit = (data: NameAndEmailFormInputsTypes) => {
     changeNameAndEmailFormData(data);
+    setIsNameAndEmailFilled(true);
     navigate('../form/covid-state?starting-point=forward');
   };
 

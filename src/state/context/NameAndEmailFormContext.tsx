@@ -19,11 +19,18 @@ const nameAndEmailFormStorage =
     ? JSON.parse(localStorage.getItem('nameAndEmailFormStorage')!)
     : { first_name: '', last_name: '', email: '' };
 
+const isNameAndEmailFilledStorage =
+  localStorage.getItem('covidStateForm') !== null
+    ? JSON.parse(localStorage.getItem('isNameAndEmailFilled')!)
+    : false;
 export const NameAndEmailFormProvider = ({
   children,
 }: {
   children: ReactNode;
 }) => {
+  const [isNameAndEmailFilled, setIsNameAndEmailFilled] = useState<boolean>(
+    isNameAndEmailFilledStorage
+  );
   const [nameAndEmailFormInputs, setNameAndEmailFormInputs] =
     useState<NameAndEmailFormInputsTypes>(nameAndEmailFormStorage);
 
@@ -44,9 +51,21 @@ export const NameAndEmailFormProvider = ({
     return () => clearTimeout(timer);
   }, [nameAndEmailFormInputs]);
 
+  useEffect(() => {
+    localStorage.setItem(
+      'isNameAndEmailFilled',
+      JSON.stringify(isNameAndEmailFilled)
+    );
+  }, [isNameAndEmailFilled]);
+
   return (
     <NameAndEmailFormContext.Provider
-      value={{ nameAndEmailFormInputs, changeNameAndEmailFormData }}
+      value={{
+        nameAndEmailFormInputs,
+        changeNameAndEmailFormData,
+        isNameAndEmailFilled,
+        setIsNameAndEmailFilled,
+      }}
     >
       {children}
     </NameAndEmailFormContext.Provider>

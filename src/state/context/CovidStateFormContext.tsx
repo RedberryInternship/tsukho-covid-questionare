@@ -17,11 +17,19 @@ const covidStateFormStorage =
     ? JSON.parse(localStorage.getItem('covidStateForm')!)
     : { had_covid: '' };
 
+const isCovidStateFilledStorage =
+  localStorage.getItem('covidStateForm') !== null
+    ? JSON.parse(localStorage.getItem('isCovidStateFilled')!)
+    : false;
+
 export const CovidStateFormProvider = ({
   children,
 }: {
   children: ReactNode;
 }) => {
+  const [isCovidStateFilled, setIsCovidStateFilled] = useState<boolean>(
+    isCovidStateFilledStorage
+  );
   const [covidStateFormInputs, setCovidStateFormInputs] =
     useState<CovidStateFormTypes>(covidStateFormStorage);
   const changeCovidStateFormData = (data: CovidStateFormTypes) => {
@@ -41,9 +49,21 @@ export const CovidStateFormProvider = ({
     return () => clearTimeout(timer);
   }, [covidStateFormInputs]);
 
+  useEffect(() => {
+    localStorage.setItem(
+      'isCovidStateFilled',
+      JSON.stringify(isCovidStateFilled)
+    );
+  }, [isCovidStateFilled]);
+
   return (
     <CovidStateFormContext.Provider
-      value={{ covidStateFormInputs, changeCovidStateFormData }}
+      value={{
+        covidStateFormInputs,
+        changeCovidStateFormData,
+        isCovidStateFilled,
+        setIsCovidStateFilled,
+      }}
     >
       {children}
     </CovidStateFormContext.Provider>
