@@ -61,15 +61,40 @@ const useCovidPoliticFormInputs = () => {
     localStorage.setItem('covidPoliticForm', JSON.stringify(getValues()));
 
   const onSubmit = async (data: CovidPoliticsTypes) => {
-    const formData = {
-      ...data,
-      ...covidStateFormInputs,
-      ...nameAndEmailFormInputs,
-      ...isVacinatedFormInputs,
-      number_of_days_from_office: +data.number_of_days_from_office,
-      had_antibody_test: covidStateFormInputs.had_antibody_test === 'true',
-      had_vaccine: isVacinatedFormInputs.had_vaccine === 'true',
-    };
+    let formData;
+
+    if (covidStateFormInputs.antibodies === undefined) {
+      formData = {
+        ...data,
+        ...covidStateFormInputs,
+        ...nameAndEmailFormInputs,
+        ...isVacinatedFormInputs,
+        number_of_days_from_office: +data.number_of_days_from_office,
+        had_antibody_test: covidStateFormInputs.had_antibody_test === 'true',
+        had_vaccine: isVacinatedFormInputs.had_vaccine === 'true',
+      };
+    } else {
+      const antibodies =
+        covidStateFormInputs.antibodies.number === null &&
+        covidStateFormInputs.antibodies.test_date === ''
+          ? {}
+          : covidStateFormInputs.antibodies.number === null
+          ? { test_date: covidStateFormInputs.antibodies.test_date }
+          : covidStateFormInputs.antibodies.test_date === ''
+          ? { number: covidStateFormInputs.antibodies.number }
+          : covidStateFormInputs.antibodies;
+
+      formData = {
+        ...data,
+        ...covidStateFormInputs,
+        ...nameAndEmailFormInputs,
+        ...isVacinatedFormInputs,
+        antibodies,
+        number_of_days_from_office: +data.number_of_days_from_office,
+        had_antibody_test: covidStateFormInputs.had_antibody_test === 'true',
+        had_vaccine: isVacinatedFormInputs.had_vaccine === 'true',
+      };
+    }
 
     const response = await instance.post('/', formData);
 
