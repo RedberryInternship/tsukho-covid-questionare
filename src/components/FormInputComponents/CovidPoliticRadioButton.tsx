@@ -12,7 +12,7 @@ const CovidPoliticRadioButton: React.FC<CovidPoliticRadioButtonProps> = ({
       <input
         type='radio'
         {...register(madeFor, {
-          required: true,
+          required: { value: true, message: 'ველი სავალდებულოა' },
         })}
         id={value}
         value={value}
