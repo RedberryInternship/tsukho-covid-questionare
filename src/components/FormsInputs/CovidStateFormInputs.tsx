@@ -19,11 +19,11 @@ const CovidStateFormInputs = () => {
     <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col'>
       <label
         htmlFor='had_covid'
-        className='font-bold leading-[27px] text-[22px] text-neutral-850 mb-[18px]'
+        className='font-bold leading-[1.688rem] text-[1.375rem] text-neutral-850 mb-[1.125rem]'
       >
         გაქვს გადატანილი Covid-19?*
       </label>
-      <div className='flex items-center mb-[20px]'>
+      <div className='flex items-center mb-[1.25rem]'>
         <input
           type='radio'
           {...register('had_covid', {
@@ -32,7 +32,7 @@ const CovidStateFormInputs = () => {
           })}
           id='yes'
           value={'yes'}
-          className='mx-[19px] radio-button'
+          className='mx-[1.188rem] radio-button'
         />
         <label
           htmlFor='yes'
@@ -41,7 +41,7 @@ const CovidStateFormInputs = () => {
           კი
         </label>
       </div>
-      <div className='flex items-center mb-[20px]'>
+      <div className='flex items-center mb-[1.25rem]'>
         <input
           type='radio'
           {...register('had_covid', {
@@ -50,7 +50,7 @@ const CovidStateFormInputs = () => {
           })}
           value={'no'}
           id='no'
-          className='mx-[19px] radio-button'
+          className='mx-[1.188rem] radio-button'
         />
         <label
           htmlFor='no'
@@ -59,7 +59,7 @@ const CovidStateFormInputs = () => {
           არა
         </label>
       </div>
-      <div className='flex items-center mb-[20px]'>
+      <div className='flex items-center mb-[1.25rem]'>
         <input
           type='radio'
           {...register('had_covid', {
@@ -68,7 +68,7 @@ const CovidStateFormInputs = () => {
           })}
           value={'have_right_now'}
           id='have_right_now'
-          className='mx-[19px] radio-button '
+          className='mx-[1.188rem] radio-button '
         />
         <label
           htmlFor='have_right_now'
@@ -81,11 +81,11 @@ const CovidStateFormInputs = () => {
         <Fragment>
           <label
             htmlFor='had_antibody_test'
-            className='font-bold leading-[27px] text-[22px] text-neutral-850 mb-[18px] mt-[26px]'
+            className='font-bold leading-[1.688rem] text-[1.375rem] text-neutral-850 mb-[1.125rem] mt-[1.625rem]'
           >
             ანტისხეულების ტესტი გაქვს გაკეთებული?*
           </label>
-          <div className='flex items-center mb-[20px]'>
+          <div className='flex items-center mb-[1.25rem]'>
             <input
               type='radio'
               {...register('had_antibody_test', {
@@ -93,7 +93,7 @@ const CovidStateFormInputs = () => {
               })}
               id='had_antibody_test_yes'
               value={'true'}
-              className='mx-[19px] radio-button'
+              className='mx-[1.188rem] radio-button'
             />
             <label
               htmlFor='had_antibody_test_yes'
@@ -102,13 +102,13 @@ const CovidStateFormInputs = () => {
               კი
             </label>
           </div>
-          <div className='flex items-center mb-[20px]'>
+          <div className='flex items-center mb-[1.25rem]'>
             <input
               type='radio'
               {...register('had_antibody_test', { required: true })}
               value={'false'}
               id='had_antibody_test_no'
-              className='mx-[19px] radio-button'
+              className='mx-[1.188rem] radio-button'
             />
             <label
               htmlFor='had_antibody_test_no'
@@ -123,7 +123,7 @@ const CovidStateFormInputs = () => {
         <Fragment>
           <label
             htmlFor='covid_sickness_date'
-            className='font-bold leading-[27px] text-[22px] text-neutral-850 mb-[18px] mt-[26px] max-w-[570px]'
+            className='font-bold leading-[1.688rem] text-[1.375rem] text-neutral-850 mb-[1.125rem] mt-[1.625rem] max-w-[35.625rem]'
           >
             მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*
           </label>
@@ -136,10 +136,10 @@ const CovidStateFormInputs = () => {
               },
             })}
             onFocus={(e) => (e.target.type = 'date')}
-            className='border-[1px] ml-[19px] bg-white-150 outline-none px-[20px] py-2.5 w-[513px] border-neutral-850 font-normal text-lg leading-[22px] h-[50px]'
+            className='border-[1px] ml-[1.188rem] bg-white-150 outline-none px-[1.25rem] py-2.5 w-[513px] border-neutral-850 font-normal text-lg leading-[1.375rem] h-[50px]'
             placeholder='დდ/თთ/წწ'
           />
-          <div className='font-normal text-base leading-[19px] h-[19px] text-orange-650 mt-[5px] ml-[15px]'>
+          <div className='font-normal text-base leading-[1.188rem] h-[1.188rem] text-orange-650 mt-[5px] ml-[15px]'>
             <ErrorMessage errors={errors} name='covid_sickness_date' />
           </div>
         </Fragment>
@@ -149,7 +149,7 @@ const CovidStateFormInputs = () => {
         <Fragment>
           <label
             htmlFor='antibodies'
-            className='font-bold leading-[27px] text-[22px] text-neutral-850 mb-[18px] mt-[26px] max-w-[570px]'
+            className='font-bold leading-[1.688rem] text-[1.375rem] text-neutral-850 mb-[1.125rem] mt-[1.625rem] max-w-[35.625rem]'
           >
             თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების
             რაოდენობა*
@@ -163,10 +163,10 @@ const CovidStateFormInputs = () => {
               },
             })}
             onFocus={(e) => (e.target.type = 'date')}
-            className='border-[1px] ml-[19px] bg-white-150 outline-none px-[20px] py-2.5 w-[513px] border-neutral-850 font-normal text-lg leading-[22px] h-[50px]'
+            className='border-[1px] ml-[1.188rem] bg-white-150 outline-none px-[1.25rem] py-2.5 w-[513px] border-neutral-850 font-normal text-lg leading-[1.375rem] h-[50px]'
             placeholder='რიცხვი'
           />
-          <div className='font-normal text-base leading-[19px] h-[19px] text-orange-650 mt-[5px] ml-[15px]'>
+          <div className='font-normal text-base leading-[1.188rem] h-[1.188rem] text-orange-650 mt-[5px] ml-[15px]'>
             <ErrorMessage errors={errors} name='antibodies.test_date' />
           </div>
           <input
@@ -178,16 +178,16 @@ const CovidStateFormInputs = () => {
                   /^[0-9]+$/.test(value!.toString()) || 'ველი სავალდებულოა',
               },
             })}
-            className='border-[1px] ml-[19px] mt-[25px] bg-white-150 outline-none px-[20px] py-2.5 w-[513px] border-neutral-850 font-normal text-lg leading-[22px] h-[50px]'
+            className='border-[1px] ml-[1.188rem] mt-[25px] bg-white-150 outline-none px-[1.25rem] py-2.5 w-[513px] border-neutral-850 font-normal text-lg leading-[1.375rem] h-[50px]'
             placeholder='ანტისხეულების რაოდენობა'
           />
-          <div className='font-normal text-base leading-[19px] h-[19px] text-orange-650 mt-[5px] ml-[15px]'>
+          <div className='font-normal text-base leading-[1.188rem] h-[1.188rem] text-orange-650 mt-[5px] ml-[15px]'>
             <ErrorMessage errors={errors} name='antibodies.number' />
           </div>
         </Fragment>
       )}
 
-      <div className='w-[145px] flex justify-between absolute bottom-[25px] left-1/2 translate-x--1/2 z-[15]'>
+      <div className='w-[9rem] flex justify-between absolute bottom-[1.56rem] left-1/2 translate-x--1/2 z-[15]'>
         <Link to={'../form/name-and-email?starting-point=backward'}>
           <ArrowLeft />
         </Link>
