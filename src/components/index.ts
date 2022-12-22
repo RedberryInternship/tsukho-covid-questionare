@@ -1,5 +1,3 @@
 export * from './Layout';
 export * from './icons';
-export * from './AnimationComponents';
-export * from './FormsInputs';
-export * from './FormInputComponents';
+export * from '../pages/FormPages/CovidPoliticPage/components/CovidPoliticRadioButton:';
