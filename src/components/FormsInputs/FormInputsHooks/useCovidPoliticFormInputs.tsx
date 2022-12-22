@@ -20,6 +20,7 @@ const covidPoliticFormStorage =
       };
 
 const useCovidPoliticFormInputs = () => {
+  const { isIsVacinatedFilled } = useIsVacinatedFormContext();
   const navigate = useNavigate();
   const { covidStateFormInputs } = useCovidStateFormContext();
   const { nameAndEmailFormInputs } = useFirstFormContext();
@@ -40,6 +41,11 @@ const useCovidPoliticFormInputs = () => {
     control,
     name: ['non_formal_meetings', 'number_of_days_from_office'],
   });
+
+  useEffect(() => {
+    if (!isIsVacinatedFilled)
+      navigate('../form/is-vacinated?starting-point=forward');
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(

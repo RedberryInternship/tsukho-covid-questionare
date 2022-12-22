@@ -1,12 +1,16 @@
 import { useEffect } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useNavigate } from 'react-router';
-import { useIsVacinatedFormContext } from '~/state';
+import { useCovidStateFormContext, useIsVacinatedFormContext } from '~/state';
 import { IsVacinatedFormTypes } from '~/types';
 
 const useIsVacinatedFormInputs = () => {
-  const { isVacinatedFormInputs, changeIsVacinatedFormData } =
-    useIsVacinatedFormContext();
+  const { isCovidStateFilled } = useCovidStateFormContext();
+  const {
+    isVacinatedFormInputs,
+    changeIsVacinatedFormData,
+    setIsIsVacinatedFilled,
+  } = useIsVacinatedFormContext();
   const navigate = useNavigate();
   const {
     register,
@@ -26,8 +30,14 @@ const useIsVacinatedFormInputs = () => {
 
   const onSubmit = (data: IsVacinatedFormTypes) => {
     navigate('../form/covid-politic?starting-point=forward');
+    setIsIsVacinatedFilled(true);
     changeIsVacinatedFormData(data);
   };
+
+  useEffect(() => {
+    if (!isCovidStateFilled)
+      navigate('../form/covid-state?starting-point=forward');
+  }, []);
 
   useEffect(() => {
     changeIsVacinatedFormData(getValues());
