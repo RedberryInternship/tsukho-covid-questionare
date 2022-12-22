@@ -4,7 +4,7 @@ const CovidStateFormAnimationComponents = () => {
   const startingPoint = useQuery();
 
   return (
-    <div className='relative w-[950px] h-[867px] '>
+    <div className='relative w-[59.375rem] h-[54.188rem] mt-[1.563rem]'>
       <div
         className={`absolute ${
           startingPoint === 'forward'
@@ -15,7 +15,7 @@ const CovidStateFormAnimationComponents = () => {
       <img
         src='/assets/icons/second-image.png'
         alt='scan'
-        className='mt-[-73px] z-10 absolute'
+        className='mt-[-4.563rem] z-10 absolute'
       />
     </div>
   );
