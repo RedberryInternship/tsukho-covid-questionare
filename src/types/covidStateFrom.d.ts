@@ -4,6 +4,6 @@ export type CovidStateFormTypes = {
   covid_sickness_date: string;
   antibodies: {
     test_date: string;
-    number: number;
+    number: string;
   };
 };

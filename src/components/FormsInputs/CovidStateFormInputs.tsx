@@ -156,12 +156,7 @@ const CovidStateFormInputs = () => {
           </label>
           <input
             type='text'
-            {...register('antibodies.test_date', {
-              required: {
-                value: true,
-                message: 'ველი სავალდებულოა',
-              },
-            })}
+            {...register('antibodies.test_date')}
             onFocus={(e) => (e.target.type = 'date')}
             className='border-[1px] ml-[1.188rem] bg-white-150 outline-none px-[1.25rem] py-2.5 w-[513px] border-neutral-850 font-normal text-lg leading-[1.375rem] h-[50px]'
             placeholder='რიცხვი'
@@ -170,13 +165,9 @@ const CovidStateFormInputs = () => {
             <ErrorMessage errors={errors} name='antibodies.test_date' />
           </div>
           <input
-            type='text'
+            type='number'
             {...register('antibodies.number', {
               valueAsNumber: true,
-              validate: {
-                hasSpecialChar: (value) =>
-                  /^[0-9]+$/.test(value!.toString()) || 'ველი სავალდებულოა',
-              },
             })}
             className='border-[1px] ml-[1.188rem] mt-[25px] bg-white-150 outline-none px-[1.25rem] py-2.5 w-[513px] border-neutral-850 font-normal text-lg leading-[1.375rem] h-[50px]'
             placeholder='ანტისხეულების რაოდენობა'
