@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { CovidPoliticRadioButtonProps } from '~/types';
+import { CovidPoliticRadioButtonProps } from './covidPoliticRadioButtonProps';
 
 const CovidPoliticRadioButton: React.FC<CovidPoliticRadioButtonProps> = ({
   register,
