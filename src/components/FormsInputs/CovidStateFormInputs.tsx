@@ -5,8 +5,15 @@ import { Link } from 'react-router-dom';
 import { useCovidStateFormInputs } from '~/components/FormsInputs/FormInputsHooks';
 
 const CovidStateFormInputs = () => {
-  const { register, handleSubmit, errors, isValid, userAnswers, onSubmit } =
-    useCovidStateFormInputs();
+  const {
+    register,
+    handleSubmit,
+    errors,
+    isValid,
+    userAnswers,
+    onSubmit,
+    setValue,
+  } = useCovidStateFormInputs();
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col'>
@@ -19,7 +26,10 @@ const CovidStateFormInputs = () => {
       <div className='flex items-center mb-[20px]'>
         <input
           type='radio'
-          {...register('had_covid', { required: true })}
+          {...register('had_covid', {
+            required: true,
+            onChange: () => setValue('had_antibody_test', ''),
+          })}
           id='yes'
           value={'yes'}
           className='mx-[19px] radio-button'
@@ -34,7 +44,10 @@ const CovidStateFormInputs = () => {
       <div className='flex items-center mb-[20px]'>
         <input
           type='radio'
-          {...register('had_covid', { required: true })}
+          {...register('had_covid', {
+            required: true,
+            onChange: () => setValue('had_antibody_test', ''),
+          })}
           value={'no'}
           id='no'
           className='mx-[19px] radio-button'
@@ -49,7 +62,10 @@ const CovidStateFormInputs = () => {
       <div className='flex items-center mb-[20px]'>
         <input
           type='radio'
-          {...register('had_covid', { required: true })}
+          {...register('had_covid', {
+            required: true,
+            onChange: () => setValue('had_antibody_test', ''),
+          })}
           value={'have_right_now'}
           id='have_right_now'
           className='mx-[19px] radio-button '
@@ -75,12 +91,12 @@ const CovidStateFormInputs = () => {
               {...register('had_antibody_test', {
                 required: true,
               })}
-              id='yes'
+              id='had_antibody_test_yes'
               value={'true'}
               className='mx-[19px] radio-button'
             />
             <label
-              htmlFor='yes'
+              htmlFor='had_antibody_test_yes'
               className='font-normal text-xl leading-6 text-neutral-850'
             >
               კი
@@ -91,11 +107,11 @@ const CovidStateFormInputs = () => {
               type='radio'
               {...register('had_antibody_test', { required: true })}
               value={'false'}
-              id='no'
+              id='had_antibody_test_no'
               className='mx-[19px] radio-button'
             />
             <label
-              htmlFor='no'
+              htmlFor='had_antibody_test_no'
               className='font-normal text-xl leading-6 text-neutral-850'
             >
               არა
@@ -103,7 +119,7 @@ const CovidStateFormInputs = () => {
           </div>
         </Fragment>
       )}
-      {userAnswers[1] === 'false' && (
+      {userAnswers[0] === 'yes' && userAnswers[1] === 'false' && (
         <Fragment>
           <label
             htmlFor='covid_sickness_date'
@@ -129,7 +145,7 @@ const CovidStateFormInputs = () => {
         </Fragment>
       )}
 
-      {userAnswers[1] === 'true' && (
+      {userAnswers[0] === 'yes' && userAnswers[1] === 'true' && (
         <Fragment>
           <label
             htmlFor='antibodies'

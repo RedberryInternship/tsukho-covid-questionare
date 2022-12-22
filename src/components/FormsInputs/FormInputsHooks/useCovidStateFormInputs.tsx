@@ -15,6 +15,7 @@ const useCovidStateFormInputs = () => {
     control,
     formState: { errors, isValid },
     getValues,
+    setValue,
   } = useForm<CovidStateFormTypes>({
     mode: 'onChange',
     shouldUnregister: true,
@@ -28,6 +29,7 @@ const useCovidStateFormInputs = () => {
       'had_antibody_test',
       'antibodies.number',
       'antibodies.test_date',
+      'covid_sickness_date',
     ],
   });
 
@@ -40,7 +42,15 @@ const useCovidStateFormInputs = () => {
     navigate('../form/is-vacinated?starting-point=forward');
   };
 
-  return { register, handleSubmit, errors, isValid, userAnswers, onSubmit };
+  return {
+    register,
+    handleSubmit,
+    errors,
+    isValid,
+    userAnswers,
+    onSubmit,
+    setValue,
+  };
 };
 
 export default useCovidStateFormInputs;
