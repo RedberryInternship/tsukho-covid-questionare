@@ -30,7 +30,7 @@ const useCovidPoliticFormInputs = () => {
     handleSubmit,
     getValues,
     control,
-    formState: { isValid },
+    formState: { errors },
   } = useForm<CovidPoliticsTypes>({
     mode: 'onChange',
     defaultValues: covidPoliticFormStorage,
@@ -80,7 +80,7 @@ const useCovidPoliticFormInputs = () => {
     register,
     handleSubmit,
     onSubmit,
-    isValid,
+    errors,
     saveCovidPoliticsInformation,
   };
 };

@@ -1,3 +1,4 @@
+import { ErrorMessage } from '@hookform/error-message';
 import { CovidPoliticRadioButton } from '~/components';
 import useCovidPoliticFormInputs from '~/components/FormsInputs/FormInputsHooks/useCovidPoliticFormInputs';
 
@@ -6,7 +7,7 @@ const CovidPoliticFormInputs = () => {
     register,
     handleSubmit,
     onSubmit,
-    isValid,
+    errors,
     saveCovidPoliticsInformation,
   } = useCovidPoliticFormInputs();
 
@@ -54,13 +55,16 @@ const CovidPoliticFormInputs = () => {
             buttonText={'ორ კვირაში ერთხელ'}
           />
         </div>
-        <div className='flex items-center mt-[20px] mb-[47px] '>
+        <div className='flex items-center mt-[20px] '>
           <CovidPoliticRadioButton
             register={register}
             madeFor={'non_formal_meetings'}
             value={'once_in_a_month'}
             buttonText={'თვეში ერთხელ'}
           />
+        </div>
+        <div className='font-normal text-xl leading-[19px] h-[19px] text-orange-650 mt-[15px] ml-[15px] mb-[28px]'>
+          <ErrorMessage errors={errors} name='non_formal_meetings' />
         </div>
 
         <label
@@ -109,13 +113,16 @@ const CovidPoliticFormInputs = () => {
             buttonText={'5'}
           />
         </div>
-        <div className='flex items-center mt-[20px] mb-[51px]'>
+        <div className='flex items-center mt-[20px] '>
           <CovidPoliticRadioButton
             register={register}
             madeFor={'number_of_days_from_office'}
             value={'6'}
             buttonText={'6'}
           />
+        </div>
+        <div className='font-normal text-xl leading-[19px] h-[19px] text-orange-650 mt-[15px] ml-[15px] mb-[32px]'>
+          <ErrorMessage errors={errors} name='number_of_days_from_office' />
         </div>
 
         <label
@@ -152,7 +159,6 @@ const CovidPoliticFormInputs = () => {
         <div className='mt-[54px] flex justify-end items-center mb-[74px]'>
           <button
             type='submit'
-            disabled={!isValid}
             className='w-[180px] h-[56px] rounded-[42px] bg-cyan-750 text-lg text-white-100 leading-[22px]'
           >
             დასრულება
