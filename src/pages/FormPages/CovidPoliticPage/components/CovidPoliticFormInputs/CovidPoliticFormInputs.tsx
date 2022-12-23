@@ -12,7 +12,7 @@ const CovidPoliticFormInputs = () => {
   } = useCovidPoliticFormInputs();
 
   return (
-    <div className='w-[632px] h-[850px] overflow-scroll'>
+    <div className='w-[39.5rem] h-[53.125rem] overflow-scroll'>
       <p className=' font-normal text-[22px] leading-[27px] text-neutral-850'>
         რედბერის მთავარი ღირებულება ჩვენი გუნდის თითოეული წევრია. გარემო,
         რომელსაც ჩვენი თანამშრომლები ქმნით, ბევრისთვის არის და ყოფილა წლების
