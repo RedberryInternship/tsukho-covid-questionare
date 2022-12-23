@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
 import { ArrowLeft, ArrowRight, ArrowRightDisabled } from '~/components/icons';
 import { Link } from 'react-router-dom';
-import { useCovidStateFormInputs } from './hooks';
+import useCovidStateFormInputs from './useCovidStateFormInputs';
 
 const CovidStateFormInputs = () => {
   const {

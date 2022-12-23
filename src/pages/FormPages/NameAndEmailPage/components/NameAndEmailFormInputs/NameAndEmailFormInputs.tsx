@@ -1,6 +1,6 @@
 import { ArrowRight, ArrowRightDisabled } from '~/components';
 
-import { useNameAndEmailFormInputs } from './hooks';
+import useNameAndEmailFormInputs from './useNameAndEmailFormInputs';
 
 import { ErrorMessage } from '@hookform/error-message';
 

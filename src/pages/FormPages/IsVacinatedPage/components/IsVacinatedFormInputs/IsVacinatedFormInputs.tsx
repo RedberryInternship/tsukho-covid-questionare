@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { useIsVacinatedFormInputs } from './hooks';
+import useIsVacinatedFormInputs from './useIsVacinatedFormInputs';
 import { ArrowLeft, ArrowRight, ArrowRightDisabled } from '~/components/icons';
 
 const IsVacinatedFormInputs = () => {
