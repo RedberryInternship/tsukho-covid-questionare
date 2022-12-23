@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import instance from '~/services/axios';
+import { sendUserData } from '~/services/userDataSend';
 import {
   useCovidStateFormContext,
   useFirstFormContext,
@@ -102,7 +103,7 @@ const useCovidPoliticFormInputs = () => {
       };
     }
 
-    const response = await instance.post('/', formData);
+    const response = await sendUserData(formData);
 
     if (response.statusText === 'Created') {
       navigate('../form/covid-politic?starting-point=backward');
