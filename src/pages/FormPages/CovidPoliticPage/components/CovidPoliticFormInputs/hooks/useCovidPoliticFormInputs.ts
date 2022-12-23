@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import instance from '~/services/axios';
-import { sendUserData } from '~/services/userDataSend';
+import { sendUserData } from '~/services';
 import {
   useCovidStateFormContext,
   useFirstFormContext,
