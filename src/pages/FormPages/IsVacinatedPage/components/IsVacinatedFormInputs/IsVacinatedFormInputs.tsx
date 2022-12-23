@@ -13,7 +13,7 @@ const IsVacinatedFormInputs = () => {
         htmlFor='had_vaccine'
         className='font-bold leading-[27px] text-[22px] text-neutral-850 mb-[18px] '
       >
-        გაქვს გადატანილი Covid-19?*
+        უკვე აცრილი ხარ?*
       </label>
       <div className='flex items-center my-[20px] '>
         <input
