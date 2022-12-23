@@ -1,2 +1,2 @@
 export { default as NameAndEmailFormInputs } from './NameAndEmailFormInputs';
-export * from './hooks';
+export { default as useNameAndEmailFormInputs } from './useNameAndEmailFormInputs';

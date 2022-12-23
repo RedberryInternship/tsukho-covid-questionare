@@ -1,6 +1,6 @@
 import { ErrorMessage } from '@hookform/error-message';
 import { CovidPoliticRadioButton } from '../CovidPoliticRadioButton:';
-import { useCovidPoliticFormInputs } from './hooks';
+import useCovidPoliticFormInputs from './useCovidPoliticFormInputs';
 
 const CovidPoliticFormInputs = () => {
   const {
