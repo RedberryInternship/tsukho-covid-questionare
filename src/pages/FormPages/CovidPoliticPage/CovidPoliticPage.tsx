@@ -10,7 +10,7 @@ const CovidPoliticPage = () => {
         <CovidPoliticFormInputs />
         <CovidPoliticFormAnimation />
       </div>
-      <div className='w-full flex justify-center mb-[50px]'>
+      <div className='w-full flex justify-center '>
         <div className='w-[145px] flex justify-between '>
           <Link to={'../form/is-vacinated?starting-point=backward'}>
             <ArrowLeft />
