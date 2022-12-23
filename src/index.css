@@ -11,11 +11,12 @@
 }
 
 .text-shadow:hover {
-  text-shadow: 2px 1px 0px #eaeaea, 4px 1px 0px #232323;
+  text-shadow: 2px 1px 0px #eaeaea, 3px 1px 0px #232323;
 }
 
 .text-shadow {
   font-variant-caps: all-small-caps;
+  letter-spacing: 2px;
 }
 
 .text-success {
